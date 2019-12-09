@@ -8,7 +8,7 @@
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "prettier": "^1.19.1"
+    "webpack": "^4.41.2"
   },
   "scripts": {
     "lint": "eslint --debug js/",
