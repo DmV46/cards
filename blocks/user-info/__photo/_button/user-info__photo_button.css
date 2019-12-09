@@ -1,0 +1,11 @@
+.user-info__photo_button {
+  cursor: pointer;
+}
+
+.user-info__photo_button:hover {
+  opacity: .7;
+}
+
+.user-info__photo_button:focus {
+  outline-color: transparent;
+}
