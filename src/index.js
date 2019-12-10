@@ -1,15 +1,18 @@
 import "./style.css";
-import PlacesList from '../js/classes/placesList.js';
+import placesList from '../js/classes/placesList.js';
 import PopupNewCard from '../js/classes/popupNewCard.js';
 import PopupUserProfile from '../js/classes/popupUserProfile.js';
 import PopupAvatar from '../js/classes/popupAvatar.js';
 import api from '../js/api.js';
 
+const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort5' : 'https://praktikum.tk/cohort5'
+
 const btnOpenAddCard = document.querySelector('.user-info__button');
 const btnOpenEditProfile = document.querySelector('.user-info__edit');
 const btnAvatar = document.querySelector('.user-info__photo_button');
 
-const placesList = new PlacesList(document.querySelector('.places-list'), []);
+// const placesList = new PlacesList(document.querySelector('.places-list'), []);
+
 api.getUserProfile()
   .then((profile) => {
     document.querySelector('.user-info__name').textContent = profile.name;
@@ -43,4 +46,4 @@ btnAvatar.addEventListener('click', () => {
   popupAvatar.open();
 });
 
-export default { placesList };
+// export default { placesList };
