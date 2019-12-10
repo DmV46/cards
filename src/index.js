@@ -1,8 +1,9 @@
-import PlacesList from './classes/placesList.js';
-import PopupNewCard from './classes/popupNewCard.js';
-import PopupUserProfile from './classes/popupUserProfile.js';
-import PopupAvatar from './classes/popupAvatar.js';
-import api from './api.js';
+import "./style.css";
+import PlacesList from '../js/classes/placesList.js';
+import PopupNewCard from '../js/classes/popupNewCard.js';
+import PopupUserProfile from '../js/classes/popupUserProfile.js';
+import PopupAvatar from '../js/classes/popupAvatar.js';
+import api from '../js/api.js';
 
 const btnOpenAddCard = document.querySelector('.user-info__button');
 const btnOpenEditProfile = document.querySelector('.user-info__edit');
