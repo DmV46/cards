@@ -9,7 +9,7 @@ export default class PopupNewCard extends Popup {
     const id = 'add-card';
     const innerHTML = `
       <div class="popup__content">
-        <img src="./images/close.svg" alt="" class="popup__close popup__close_addCard" >
+        <img src="../images/close.svg" alt="" class="popup__close popup__close_addCard" >
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__form" name="new">
             <input type="text" name="titleCard" class="popup__input " placeholder="Название" required minlength="2" maxlength="30">

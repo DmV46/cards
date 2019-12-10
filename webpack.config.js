@@ -39,8 +39,8 @@ module.exports = {
             ]
         },
         {
-            test: /\.(woff|woff2|eot|ttf|otf)$/, // регулярное выражение, которое ищет все шрифты
-            use: { loader: 'file-loader' }
+            test: /\.(eot|ttf|woff|woff2)$/,
+            loader: 'file-loader?name=./vendor/[name].[ext]'
         }
         ]
     },

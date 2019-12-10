@@ -1,11 +1,9 @@
 import "./style.css";
-import placesList from '../js/classes/placesList.js';
+import placesList from '../js/placeList.js';
 import PopupNewCard from '../js/classes/popupNewCard.js';
 import PopupUserProfile from '../js/classes/popupUserProfile.js';
 import PopupAvatar from '../js/classes/popupAvatar.js';
 import api from '../js/api.js';
-
-const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort5' : 'https://praktikum.tk/cohort5'
 
 const btnOpenAddCard = document.querySelector('.user-info__button');
 const btnOpenEditProfile = document.querySelector('.user-info__edit');
@@ -23,6 +21,7 @@ api.getUserProfile()
 
 api.getInitialCards()
   .then((cards) => {
+    // console.log(cards);
     cards.forEach((card) => placesList.addCard(card));
   })
   .catch((err) => { throw new Error(err); });
