@@ -23,11 +23,11 @@ export default class PlaceCard {
     placeCard.innerHTML = `
             <div class="place-card__image"></div>
             <div class="place-card__description">
-                <h3 class="place-card__name"></h3>
-                <div class="place-card__container">
-                    <button class="place-card__like-icon"></button>
-                    <p class="place-card__count-like">0</p>
-                </div>
+              <h3 class="place-card__name"></h3>
+              <div class="place-card__container">
+                <button class="place-card__like-icon"></button>
+                <p class="place-card__count-like">0</p>
+              </div>
             </div>`;
 
     if (this.owner._id === ownerID) {

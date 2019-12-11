@@ -6,16 +6,15 @@ export default class PopupAvatar extends Popup {
   constructor() {
     super();
     const id = 'avatar';
-    // type="url"
     const innerHTML = `
       <div class="popup__content">
-        <img src="../images/close.svg" alt="" class="popup__close popup__close_addCard" >
+        <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close popup__close_addCard" >
         <h3 class="popup__title">Обновить аватар</h3>
         <form class="popup__form" name="avatar">
-            <input  name="linkAvatar" class="popup__input" placeholder="Ссылка на картинку" required>
-            <p class="popup__input_invalide"></p>
-            <button type="submit" class="button popup__button popup__button_size-text_S" disabled="true">Сохранить</button>
-            </form>
+          <input type="url" name="linkAvatar" class="popup__input" placeholder="Ссылка на картинку" required>
+          <p class="popup__input_invalide"></p>
+          <button type="submit" class="button popup__button popup__button_size-text_S" disabled="true">Сохранить</button>
+          </form>
       </div>`;
 
     this.createPopup = () => createPopup(id, innerHTML);

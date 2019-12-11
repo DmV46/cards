@@ -1,4 +1,4 @@
-import "./style.css";
+import './style.css';
 import placesList from '../js/placeList.js';
 import PopupNewCard from '../js/classes/popupNewCard.js';
 import PopupUserProfile from '../js/classes/popupUserProfile.js';
