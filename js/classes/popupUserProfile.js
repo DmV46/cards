@@ -8,7 +8,7 @@ export default class PopupUserProfile extends Popup {
     const id = 'edit-profile';
     const innerHTML = `
       <div class="popup__content">
-        <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close popup__close_editProfile">
+        <img src="../../images/close.svg" alt="close" class="popup__close popup__close_editProfile">
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form" name="edit">
           <input type="text" name="user" class="popup__input"  placeholder="Имя" required minlength="2" maxlength="30">

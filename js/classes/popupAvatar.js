@@ -8,7 +8,7 @@ export default class PopupAvatar extends Popup {
     const id = 'avatar';
     const innerHTML = `
       <div class="popup__content">
-        <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close popup__close_addCard" >
+        <img src="../../images/close.svg" alt="close" class="popup__close popup__close_addCard" >
         <h3 class="popup__title">Обновить аватар</h3>
         <form class="popup__form" name="avatar">
           <input type="url" name="linkAvatar" class="popup__input" placeholder="Ссылка на картинку" required>
