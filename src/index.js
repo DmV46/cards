@@ -1,15 +1,14 @@
 import './style.css';
-import placesList from '../js/placeList.js';
-import PopupNewCard from '../js/classes/popupNewCard.js';
-import PopupUserProfile from '../js/classes/popupUserProfile.js';
-import PopupAvatar from '../js/classes/popupAvatar.js';
-import api from '../js/api.js';
+import placesList from './js/placeList.js';
+import PopupNewCard from './js/classes/popupNewCard.js';
+import PopupUserProfile from './js/classes/popupUserProfile.js';
+import PopupAvatar from './js/classes/popupAvatar.js';
+import api from './js/api.js';
 
 const btnOpenAddCard = document.querySelector('.user-info__button');
 const btnOpenEditProfile = document.querySelector('.user-info__edit');
 const btnAvatar = document.querySelector('.user-info__photo_button');
 
-// const placesList = new PlacesList(document.querySelector('.places-list'), []);
 
 api.getUserProfile()
   .then((profile) => {
@@ -21,7 +20,6 @@ api.getUserProfile()
 
 api.getInitialCards()
   .then((cards) => {
-    // console.log(cards);
     cards.forEach((card) => placesList.addCard(card));
   })
   .catch((err) => { throw new Error(err); });
@@ -44,5 +42,3 @@ btnAvatar.addEventListener('click', () => {
   const popupAvatar = new PopupAvatar();
   popupAvatar.open();
 });
-
-// export default { placesList };

@@ -1,6 +1,7 @@
 import Popup from './popup.js';
 import api from '../api.js';
 import { createPopup } from '../helpers.js';
+import closeImg from '../../images/close.svg';
 
 export default class PopupAvatar extends Popup {
   constructor() {
@@ -8,7 +9,7 @@ export default class PopupAvatar extends Popup {
     const id = 'avatar';
     const innerHTML = `
       <div class="popup__content">
-        <img src="../../images/close.svg" alt="close" class="popup__close popup__close_addCard" >
+        <img src="${ closeImg }" alt="close" class="popup__close" >
         <h3 class="popup__title">Обновить аватар</h3>
         <form class="popup__form" name="avatar">
           <input type="url" name="linkAvatar" class="popup__input" placeholder="Ссылка на картинку" required>

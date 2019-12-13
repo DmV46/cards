@@ -1,5 +1,6 @@
 import Popup from './popup.js';
 import { createPopup } from '../helpers.js';
+import closeImg from '../../images/close.svg';
 
 export default class PopupImage extends Popup {
   constructor(link) {
@@ -9,7 +10,7 @@ export default class PopupImage extends Popup {
     const innerHTML = `
     <div class="popup__container-image">
       <img class="popup__placeCard-image" src="${this.link}" alt="Picture">
-      <img src="../../images/close.svg" alt="close" class="popup__close popup__close_editProfile">
+      <img src="${ closeImg }" alt="close" class="popup__close">
     </div>
     `;
     this.createPopup = () => createPopup(id, innerHTML);

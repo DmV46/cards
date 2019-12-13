@@ -14,11 +14,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[chunkhash].js'
     },
-    resolve: {
-        alias: {
-            images: path.resolve(__dirname, "images")
-        }
-    },
+
     module: {
         rules: [{ // тут описываются правила
             test: /\.js$/, // регулярное выражение, которое ищет все js файлы
