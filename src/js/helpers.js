@@ -10,9 +10,10 @@ const validationErrors = {
 
 function checkValidField(fieldInputs) {
   let isValid = 1;
-  fieldInputs.forEach((input) => {
+  fieldInputs.forEach(input => {
     isValid *= input.validity.valid;
   });
+
   return isValid;
 }
 
@@ -30,7 +31,7 @@ function validateValue(value) {
   if (inputText.validity.tooLong || inputText.validity.tooShort) {
     inputText.nextElementSibling.textContent = validationErrors.LENGTH;
   }
-  
+
   if (inputText.validity.typeMismatch) {
     inputText.nextElementSibling.textContent = validationErrors.NOT_LINK;
   }
@@ -70,5 +71,6 @@ export function createPopup(id, innerHTML) {
   newPopup.classList.add('popup');
   newPopup.id = id;
   newPopup.innerHTML = innerHTML;
+
   return newPopup;
 }

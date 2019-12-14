@@ -2,6 +2,7 @@ function getResponseData(response) {
   if (response.ok) {
     return response.json();
   }
+
   return Promise.reject(new Error(`Ошибка: ${response.status}`));
 }
 
@@ -20,6 +21,7 @@ export default class Api {
         about,
       }),
     });
+
     return getResponseData(response);
   }
 
@@ -27,6 +29,7 @@ export default class Api {
     const response = await fetch(`${this.baseUrl}/users/me`, {
       headers: this.headers,
     });
+
     return getResponseData(response);
   }
 
@@ -34,6 +37,7 @@ export default class Api {
     const response = await fetch(`${this.baseUrl}/cards`, {
       headers: this.headers,
     });
+
     return getResponseData(response);
   }
 
@@ -46,6 +50,7 @@ export default class Api {
         link,
       }),
     });
+
     return getResponseData(response);
   }
 
@@ -54,6 +59,7 @@ export default class Api {
       method: 'DELETE',
       headers: this.headers,
     });
+
     return getResponseData(response);
   }
 
@@ -62,6 +68,7 @@ export default class Api {
       method: 'PUT',
       headers: this.headers,
     });
+
     return getResponseData(response);
   }
 
@@ -70,6 +77,7 @@ export default class Api {
       method: 'DELETE',
       headers: this.headers,
     });
+
     return getResponseData(response);
   }
 
@@ -79,6 +87,7 @@ export default class Api {
       headers: this.headers,
       body: JSON.stringify({ avatar: link }),
     });
+
     return getResponseData(response);
   }
 }

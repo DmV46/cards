@@ -9,7 +9,7 @@ export default class PopupUserProfile extends Popup {
     const id = 'edit-profile';
     const innerHTML = `
       <div class="popup__content">
-        <img src="${ closeImg }" alt="close" class="popup__close">
+        <img src="${closeImg}" alt="close" class="popup__close">
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form" name="edit">
           <input type="text" name="user" class="popup__input"  placeholder="Имя" required minlength="2" maxlength="30">
@@ -23,17 +23,20 @@ export default class PopupUserProfile extends Popup {
     this.handlerSubmit = this.handlerSubmit.bind(this);
   }
 
-  handlerSubmit(e) {
-    e.preventDefault();
+  handlerSubmit(event) {
+    event.preventDefault();
     const form = this.popup.querySelector('.popup__form');
     renderLoadingData(true, this.popup.querySelector('.button'));
-    api.patchInfoUser(form.elements.user.value, form.elements.about.value)
-      .then((profile) => {
+    api
+      .patchInfoUser(form.elements.user.value, form.elements.about.value)
+      .then(profile => {
         document.querySelector('.user-info__name').textContent = profile.name;
         document.querySelector('.user-info__job').textContent = profile.about;
         this.close();
       })
-      .catch((err) => { throw new Error(err); })
+      .catch(err => {
+        throw new Error(err);
+      })
       .finally(renderLoadingData(false, this.popup.querySelector('.button')));
   }
 }

@@ -1,6 +1,7 @@
 import Api from './classes/api.js';
 
-const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort5' : 'https://praktikum.tk/cohort5';
+const serverUrl =
+  NODE_ENV === 'development' ? 'http://praktikum.tk/cohort5' : 'https://praktikum.tk/cohort5';
 
 const api = new Api({
   baseUrl: serverUrl,

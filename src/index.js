@@ -9,20 +9,25 @@ const btnOpenAddCard = document.querySelector('.user-info__button');
 const btnOpenEditProfile = document.querySelector('.user-info__edit');
 const btnAvatar = document.querySelector('.user-info__photo_button');
 
-
-api.getUserProfile()
-  .then((profile) => {
+api
+  .getUserProfile()
+  .then(profile => {
     document.querySelector('.user-info__name').textContent = profile.name;
     document.querySelector('.user-info__job').textContent = profile.about;
     document.querySelector('.user-info__photo').style.backgroundImage = `url(${profile.avatar})`;
   })
-  .catch((err) => { throw new Error(err); });
+  .catch(err => {
+    throw new Error(err);
+  });
 
-api.getInitialCards()
-  .then((cards) => {
-    cards.forEach((card) => placesList.addCard(card));
+api
+  .getInitialCards()
+  .then(cards => {
+    cards.forEach(card => placesList.addCard(card));
   })
-  .catch((err) => { throw new Error(err); });
+  .catch(err => {
+    throw new Error(err);
+  });
 
 btnOpenAddCard.addEventListener('click', () => {
   const popupNewCard = new PopupNewCard();

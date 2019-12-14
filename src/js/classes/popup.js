@@ -28,8 +28,12 @@ export default class Popup {
     this.popup.querySelector('.popup__close').addEventListener('click', this.close);
     if (this.popup.id !== 'placeCard__image') {
       this.popup.querySelector('.popup__form').addEventListener('submit', this.handlerSubmit);
-      this.popup.querySelector('.popup__form').addEventListener('input', (e) => {
-        handlerValidateForm(e, this.popup.querySelectorAll('input'), this.popup.querySelector('.popup__button'));
+      this.popup.querySelector('.popup__form').addEventListener('input', event => {
+        handlerValidateForm(
+          event,
+          this.popup.querySelectorAll('input'),
+          this.popup.querySelector('.popup__button'),
+        );
       });
     }
   }

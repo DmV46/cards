@@ -3,15 +3,23 @@ module.exports = {
         "browser": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "plugin:prettier/recommended"
+    ],
+    "plugins": [
+        "prettier"
+    ],
     "globals": {
         "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "SharedArrayBuffer": "readonly",
+        "NODE_ENV": "readonly"
     },
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
     "rules": {
+        "prettier/prettier": "error"
     }
+
 };
