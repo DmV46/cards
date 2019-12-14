@@ -39,3 +39,9 @@ npm run build
 npm run deploy
 ```
 
+#### Syntax and style checking
+additionally option --fix (look file package.json)
+```
+npm run lint:write
+```
+
