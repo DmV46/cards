@@ -10,7 +10,7 @@ export default class PopupImage extends Popup {
     const innerHTML = `
     <div class="popup__container-image">
       <img class="popup__placeCard-image" src="${this.link}" alt="Picture">
-      <img src="${ closeImg }" alt="close" class="popup__close">
+      <img src="${closeImg}" alt="close" class="popup__close">
     </div>
     `;
     this.createPopup = () => createPopup(id, innerHTML);
