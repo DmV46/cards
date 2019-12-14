@@ -1,34 +1,34 @@
-# Mesto
+# Mesto 
 ## Sprint 11
 
 This is a training project designed to practice webpack/babel/github.
-- developer - Volodin Dmitry :male-technologist:
-- version - [v0.2.0](https://dmv46.github.io/cards/)
+- developer - Volodin Dmitry;
+- version - [v0.2.0](https://dmv46.github.io/cards/);
 ***
 
 ### Beginning of work
 
 1. Clone the repository
 
-`git clone git@github.com:DmV46/cards.git`
+    ```git clone git@github.com:DmV46/cards.git```
 
 2. Check for NPM
 
-    `npm -v`
+    >`npm -v`
 
     if necessary, install NPM 
   
-    `npm init`
+    >`npm init`
 ***
 
 #### Starting the server in development mode
-`npm run dev`
+>`npm run dev`
 
 The page will automatically reload when changes are made.
 
-#### Build the project to run in production:
-`npm run build`
+#### Build the project to run in production
+>`npm run build`
 
 #### Publishing a project
-`npm run deploy`
+>`npm run deploy`
 
