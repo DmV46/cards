@@ -23,21 +23,23 @@ export default class PlaceCard {
     placeCard.innerHTML = `
             <div class="place-card__image"></div>
             <div class="place-card__description">
-                <h3 class="place-card__name"></h3>
-                <div class="place-card__container">
-                    <button class="place-card__like-icon"></button>
-                    <p class="place-card__count-like">0</p>
-                </div>
+              <h3 class="place-card__name"></h3>
+              <div class="place-card__container">
+                <button class="place-card__like-icon"></button>
+                <p class="place-card__count-like">0</p>
+              </div>
             </div>`;
 
     if (this.owner._id === ownerID) {
-      placeCard.querySelector('.place-card__image').innerHTML = '<button class="place-card__delete-icon"></button>';
+      placeCard.querySelector('.place-card__image').innerHTML =
+        '<button class="place-card__delete-icon"></button>';
       placeCard.querySelector('.place-card__delete-icon').addEventListener('click', this.remove);
     }
 
-    this.likes.forEach((item) => {
+    this.likes.forEach(item => {
       if (item._id === ownerID) {
-        placeCard.querySelector('.place-card__like-icon')
+        placeCard
+          .querySelector('.place-card__like-icon')
           .classList.add('place-card__like-icon_liked');
       }
     });
@@ -52,28 +54,34 @@ export default class PlaceCard {
     return placeCard;
   }
 
-  like(e) {
-    if (e.target.classList.contains('place-card__like-icon_liked')) {
-      api.dislike(this.id)
-        .then((result) => {
-          e.target.nextElementSibling.textContent = result.likes.length;
-          e.target.classList.remove('place-card__like-icon_liked');
+  like(event) {
+    if (event.target.classList.contains('place-card__like-icon_liked')) {
+      api
+        .dislike(this.id)
+        .then(result => {
+          event.target.nextElementSibling.textContent = result.likes.length;
+          event.target.classList.remove('place-card__like-icon_liked');
         })
-        .catch((err) => { throw new Error(err); });
+        .catch(err => {
+          throw new Error(err);
+        });
     } else {
-      api.like(this.id)
-        .then((result) => {
-          e.target.nextElementSibling.textContent = result.likes.length;
-          e.target.classList.add('place-card__like-icon_liked');
+      api
+        .like(this.id)
+        .then(result => {
+          event.target.nextElementSibling.textContent = result.likes.length;
+          event.target.classList.add('place-card__like-icon_liked');
         })
-        .catch((err) => { throw new Error(err); });
+        .catch(err => {
+          throw new Error(err);
+        });
     }
   }
 
-  remove(e) {
+  remove(event) {
     const result = window.confirm(confirmDelete);
     if (result) {
-      const targetCard = e.target.closest('.place-card');
+      const targetCard = event.target.closest('.place-card');
       /*
             Если бы контекст метода remove был привязан к классу, здесь можно
             было бы обращаться к свойствам класса через this и сделать удаление без
@@ -85,19 +93,28 @@ export default class PlaceCard {
 
       // он имел ввиду - привяжи контекст remove и сделай удаление карточки через this.card,
       // без отслеживания e.target
-      api.deleteCard(targetCard.id)
+      api
+        .deleteCard(targetCard.id)
         .then(() => {
-          targetCard.querySelector('.place-card__like-icon').removeEventListener('click', this.like);
-          targetCard.querySelector('.place-card__image').removeEventListener('click', this.openImage);
-          targetCard.querySelector('.place-card__delete-icon').removeEventListener('click', this.remove);
+          targetCard
+            .querySelector('.place-card__like-icon')
+            .removeEventListener('click', this.like);
+          targetCard
+            .querySelector('.place-card__image')
+            .removeEventListener('click', this.openImage);
+          targetCard
+            .querySelector('.place-card__delete-icon')
+            .removeEventListener('click', this.remove);
           targetCard.remove();
         })
-        .catch((err) => { throw new Error(err); });
+        .catch(err => {
+          throw new Error(err);
+        });
     }
   }
 
-  openImage(e) {
-    if (e.target.classList.contains('place-card__image')) {
+  openImage(event) {
+    if (event.target.classList.contains('place-card__image')) {
       const popupImage = new PopupImage(this.link);
       popupImage.open();
     }

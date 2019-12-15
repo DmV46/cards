@@ -1,27 +1,33 @@
-import PlacesList from './classes/placesList.js';
-import PopupNewCard from './classes/popupNewCard.js';
-import PopupUserProfile from './classes/popupUserProfile.js';
-import PopupAvatar from './classes/popupAvatar.js';
-import api from './api.js';
+import './style.css';
+import placesList from './js/placeList.js';
+import PopupNewCard from './js/classes/popupNewCard.js';
+import PopupUserProfile from './js/classes/popupUserProfile.js';
+import PopupAvatar from './js/classes/popupAvatar.js';
+import api from './js/api.js';
 
 const btnOpenAddCard = document.querySelector('.user-info__button');
 const btnOpenEditProfile = document.querySelector('.user-info__edit');
 const btnAvatar = document.querySelector('.user-info__photo_button');
 
-const placesList = new PlacesList(document.querySelector('.places-list'), []);
-api.getUserProfile()
-  .then((profile) => {
+api
+  .getUserProfile()
+  .then(profile => {
     document.querySelector('.user-info__name').textContent = profile.name;
     document.querySelector('.user-info__job').textContent = profile.about;
     document.querySelector('.user-info__photo').style.backgroundImage = `url(${profile.avatar})`;
   })
-  .catch((err) => { throw new Error(err); });
+  .catch(err => {
+    throw new Error(err);
+  });
 
-api.getInitialCards()
-  .then((cards) => {
-    cards.forEach((card) => placesList.addCard(card));
+api
+  .getInitialCards()
+  .then(cards => {
+    cards.forEach(card => placesList.addCard(card));
   })
-  .catch((err) => { throw new Error(err); });
+  .catch(err => {
+    throw new Error(err);
+  });
 
 btnOpenAddCard.addEventListener('click', () => {
   const popupNewCard = new PopupNewCard();
@@ -41,5 +47,3 @@ btnAvatar.addEventListener('click', () => {
   const popupAvatar = new PopupAvatar();
   popupAvatar.open();
 });
-
-export default { placesList };

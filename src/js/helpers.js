@@ -1,13 +1,3 @@
-/* eslint-disable no-param-reassign */
-// eslint-disable-next-line import/prefer-default-export
-export function createPopup(id, innerHTML) {
-  const newPopup = document.createElement('div');
-  newPopup.classList.add('popup');
-  newPopup.id = id;
-  newPopup.innerHTML = innerHTML;
-  return newPopup;
-}
-
 /* ////////////////////
 /// Validation FORM ///
 //////////////////// */
@@ -20,9 +10,10 @@ const validationErrors = {
 
 function checkValidField(fieldInputs) {
   let isValid = 1;
-  fieldInputs.forEach((input) => {
+  fieldInputs.forEach(input => {
     isValid *= input.validity.valid;
   });
+
   return isValid;
 }
 
@@ -69,4 +60,17 @@ export function renderLoadingData(isLoading, submitForm) {
     submitForm.style.fontSize = '30px';
     submitForm.textContent = '+';
   }
+}
+
+/* ////////////////////
+/// Create POPUP ///
+//////////////////// */
+
+export function createPopup(id, innerHTML) {
+  const newPopup = document.createElement('div');
+  newPopup.classList.add('popup');
+  newPopup.id = id;
+  newPopup.innerHTML = innerHTML;
+
+  return newPopup;
 }
